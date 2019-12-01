@@ -104,7 +104,7 @@ func (s *Store) CreateTenant(t *Tenant) (*Tenant, error) {
 		return nil, err
 	}
 
-	columns := []string{"id", "name",}
+	columns := []string{"id", "name", "owner_id"}
 	err := s.create("tenant", t, columns)
 
 	if err != nil {
@@ -123,6 +123,7 @@ func (s *Store) UpdateTenant(id string, t *Tenant, fields ...string) error {
 
 	err := s.update("tenant", id, fields,
 		set{"Name", "name", t.Name},
+		set{"OwnerId", "owner_id", t.OwnerId},
 	)
 
 	return NewDbError(err)

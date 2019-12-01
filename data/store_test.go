@@ -188,6 +188,7 @@ func (s *StoreTestSuite) TestGetTenant() {
 	expected := &Tenant{
 		Id:   id,
 		Name: "name0",
+		OwnerId: "00000000-0000-0000-0000-000000000000",
 	}
 	s.Assert().EqualValues(expected, u)
 
@@ -204,6 +205,7 @@ func (s *StoreTestSuite) TestUpdateTenant() {
 	expected := &Tenant{
 		Id:   id,
 		Name: "name1",
+		OwnerId: "00000000-0000-0000-0000-000000000000",
 	}
 	s.Assert().EqualValues(expected, u)
 
@@ -212,6 +214,7 @@ func (s *StoreTestSuite) TestUpdateTenant() {
 	expected = &Tenant{
 		Id:   id,
 		Name: "abc",
+		OwnerId: "00000000-0000-0000-0000-000000000000",
 	}
 	s.Assert().EqualValues(expected, u)
 
@@ -223,6 +226,7 @@ func (s *StoreTestSuite) TestUpdateTenant() {
 func (s *StoreTestSuite) TestCreateTenant() {
 	created, _ := s.Store.CreateTenant(&Tenant{
 		Name: "foo",
+		OwnerId: "00000000-0000-0000-0000-000000000000",
 	})
 
 	retrieved, _ := s.Store.GetTenant(created.Id)

@@ -15,7 +15,8 @@ type User struct {
 
 type Tenant struct {
 	Id   string `db:"id" json:"id" validate:"uuid,required"`
-	Name string `db:"name" json:"name,required"`
+	Name string `db:"name" json:"required"`
+	OwnerId string `db:"owner_id" json:"ownerId" validate:"uuid,required"`
 }
 
 type Joinrequest struct {

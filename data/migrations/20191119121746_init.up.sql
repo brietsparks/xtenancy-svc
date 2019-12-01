@@ -9,8 +9,11 @@ create table "user"
 
 create table tenant
 (
-    id   uuid primary key,
-    name varchar(255) not null
+    id       uuid primary key,
+    name     varchar(255) not null,
+    owner_id uuid         not null,
+
+    foreign key (owner_id) references "user" (id)
 );
 
 create table joinrequest
